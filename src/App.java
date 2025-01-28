@@ -5,9 +5,9 @@
 
 public class App 
 {
-    private static char pixel = '.';
+    private static char pixel = '-';
     private static int rule = 30; //must be a 8 bit unsigned int
-    private static final int ZOOM = 100,HEIGHT =100 ,X_PADDING =200;
+    private static final int ZOOM = 50,HEIGHT =100 ,X_PADDING =200;
     
 
 
@@ -44,7 +44,7 @@ public class App
         char[] normVector = new char[arr.length];
         for(int i =0; i < arr.length-1;++i)
         {
-            if(arr[i] != 1)
+            if(arr[i] == 1)
                 normVector[i] = pixel;
             else
                 normVector[i] = ' ';

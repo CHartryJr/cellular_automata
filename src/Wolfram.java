@@ -32,14 +32,14 @@ public class Wolfram
             
     private int nextGenPos(int left, int mid, int right) 
     {
-        if(left == 1 && mid ==1 && right ==1) return rule[7];
-        if(left == 1 && mid ==1 && right ==0) return rule[6];
-        if(left == 1 && mid ==0 && right ==1) return rule[5];
-        if(left == 1 && mid ==0 && right ==0) return rule[4];
-        if(left == 0 && mid ==1 && right ==1) return rule[3];
-        if(left == 0 && mid ==1 && right ==0) return rule[2];
-        if(left == 0 && mid ==0 && right ==1) return rule[1];
-        if(left == 0 && mid ==0 && right ==0) return rule[0];
+        if(left == 1 && mid ==1 && right ==1) return rule[0];
+        if(left == 1 && mid ==1 && right ==0) return rule[1];
+        if(left == 1 && mid ==0 && right ==1) return rule[2];
+        if(left == 1 && mid ==0 && right ==0) return rule[3];
+        if(left == 0 && mid ==1 && right ==1) return rule[4];
+        if(left == 0 && mid ==1 && right ==0) return rule[5];
+        if(left == 0 && mid ==0 && right ==1) return rule[6];
+        if(left == 0 && mid ==0 && right ==0) return rule[7];
         return 0;
     }
 
