@@ -1,20 +1,25 @@
 public class Wolfram 
 {
-    private int [] rule;
+    private int [] rulebits;
+    private int rule;
 
-    Wolfram()
+
+    public Wolfram()
     {
-        this.rule = to8BitBinaryArray(1);
+        rule = 30;
+        this.rulebits = to8BitBinaryArray(rule);
     }
 
-    Wolfram(int rule)
+    public  Wolfram(int rule)
     {
-        this.rule = to8BitBinaryArray(rule);
+        this.rulebits = to8BitBinaryArray(rule);
+        this.rule = rule;
     }
 
     public void  setRule(int newRule)
     {
-        rule = to8BitBinaryArray(newRule);
+        rulebits = to8BitBinaryArray(newRule);
+        this.rule = newRule;
     }
 
     public int[] generate(int [] previousGen)
@@ -32,14 +37,14 @@ public class Wolfram
             
     private int nextGenPos(int left, int mid, int right) 
     {
-        if(left == 1 && mid ==1 && right ==1) return rule[0];
-        if(left == 1 && mid ==1 && right ==0) return rule[1];
-        if(left == 1 && mid ==0 && right ==1) return rule[2];
-        if(left == 1 && mid ==0 && right ==0) return rule[3];
-        if(left == 0 && mid ==1 && right ==1) return rule[4];
-        if(left == 0 && mid ==1 && right ==0) return rule[5];
-        if(left == 0 && mid ==0 && right ==1) return rule[6];
-        if(left == 0 && mid ==0 && right ==0) return rule[7];
+        if(left == 1 && mid ==1 && right ==1) return rulebits[0];
+        if(left == 1 && mid ==1 && right ==0) return rulebits[1];
+        if(left == 1 && mid ==0 && right ==1) return rulebits[2];
+        if(left == 1 && mid ==0 && right ==0) return rulebits[3];
+        if(left == 0 && mid ==1 && right ==1) return rulebits[4];
+        if(left == 0 && mid ==1 && right ==0) return rulebits[5];
+        if(left == 0 && mid ==0 && right ==1) return rulebits[6];
+        if(left == 0 && mid ==0 && right ==0) return rulebits[7];
         return 0;
     }
 
@@ -56,6 +61,11 @@ public class Wolfram
             number >>= 1;                 // Shift the number to the right
         }
         return binaryArray;
+    }
+
+    public int getRule() 
+    {
+        return rule;
     }
 }
 
