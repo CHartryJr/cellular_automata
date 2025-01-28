@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class CharacterGui 
 {
-    private static final int MAX_ARRAY_SIZE = 330;
+    private static final int MAX_ARRAY_SIZE = 285;
     private static final int FRAME_RATE = 25;
     private static final int MAX_ARRAY_COUNT = 1000;
     private static char pixel = '*';
@@ -100,7 +100,12 @@ public class CharacterGui
         if (!isNumber(ruleInput.getText()))
             return normalize(startGen);
         int newRule = Integer.parseInt(ruleInput.getText());
-        if (newRule != ca.getRule()) {
+        if (newRule != ca.getRule()) 
+        {
+            if (newRule < 0 || newRule > 255) 
+            {
+                return normalize(startGen); 
+            }
             startGen = new int[MAX_ARRAY_SIZE / 2];
             startGen[MAX_ARRAY_SIZE / 4] = 1;
             ca.setRule(newRule);
